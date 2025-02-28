@@ -15,13 +15,27 @@ const Weather = () => {
         }
         fetchDefaultLocation()
     },[])
-    
+
     const search = async() =>{
         const url = 'https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=13066171d2cda7faa49f78ee21be2300'
-        const response = await axios.get(url)
-
-        setData (response.data)
-        setLocation('')
+        
+        try {
+            const response = await axios.get(url)
+            if (response.data.cod !== 200) {
+                setData({notFound: true})
+            } else {
+                setData(response.data)
+                setLocation('')
+            } 
+        }catch (error) {
+                if (error.response && error.response.status === 404) {
+                    setData({notFound: true})
+                } else{
+                    console.error("An unexpected error occurred:", error);
+                    
+                }
+            }
+        
         console.log(data)
     }
 
