@@ -9,7 +9,7 @@ const Weather = () => {
   useEffect(() => {
     const fetchDefaultLocation = async () => {
       try {
-        const defaultLocation = "Tbilisi";
+        const defaultLocation = "New York";
         const url = `https://api.openweathermap.org/data/2.5/weather?q=${defaultLocation}&units=metric&appid=13066171d2cda7faa49f78ee21be2300`;
         const response = await axios.get(url);
         setData(response.data);
@@ -45,6 +45,11 @@ const Weather = () => {
   const handleInputChange = (e) => {
     setLocation(e.target.value);
   };
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      search();
+    }
+  };
 
   const getWeatherIcon = (weatherType) => {
     switch (weatherType) {
@@ -72,13 +77,14 @@ const Weather = () => {
         <div className="search-top">
           <i className="fa-solid fa-location-dot"> </i>
           <div className="location">{data.name || "Unknown"}</div>
-        </div>
+        </div> 
         <div className="search-location">
           <input
             type="text"
             placeholder="Enter Location"
             value={location}
             onChange={handleInputChange}
+            onKeyDown={handleKeyDown}
             onKeyPress={(e) => e.key === "Enter" && search()}
           />
           <i className="fa-solid fa-magnifying-glass" onClick={search}></i>
