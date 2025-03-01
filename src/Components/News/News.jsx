@@ -194,7 +194,12 @@ const News = () => {
                     <Calender />
                 </div>
             </div>
-            <footer className="news-footer">Footer</footer>
+            <footer className="news-footer">
+                <p>
+                    <span>News & Blogs App</span>
+                </p>
+                <p> &copy; 2025 All rights reserved. Designed By Code and Create </p>
+            </footer>
         </div>
     );
 };

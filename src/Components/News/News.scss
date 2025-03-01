@@ -260,5 +260,14 @@ $gap: 2rem;
         min-height: 5rem;
         background-color: $primary-bg;
         border-radius: 0 0 1rem 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 4rem;
+    }
+    p{
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: $text-color;
     }
 }
