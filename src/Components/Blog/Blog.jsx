@@ -1,5 +1,6 @@
 import React from 'react'
 import UserImg from '../../assets/images/user.jpg'
+import './Blog.scss'
 const Blog = () => {
   return (
     <div className='blog'>
