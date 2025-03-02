@@ -30,4 +30,18 @@ transform: translateY(-50%);
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+}
+
+.blog-close-btn{
+    position: absolute;
+    top: 3rem;
+    right: 2.5rem;
+    background: transparent;
+    border: none;
+    font-family: "Bebas Neue" , sans-serif;
+    font-size: 3rem;
+    color: #ddd;
+    align-items: center;
+    cursor: pointer;   
 }
