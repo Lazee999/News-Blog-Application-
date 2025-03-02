@@ -33,6 +33,23 @@ transform: translateY(-50%);
     position: relative;
 }
 
+.post-btn{
+    width: clamp(15rem, 10cqi, 30rem);
+    aspect-ratio: 4/1;
+    background: linear-gradient(to right, #b88efa, #6877fa);
+    border: none;
+    border-radius: 2.5rem;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    text-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.post-btn:active{
+    transform: translateY(0.2rem);
+}
 .blog-close-btn{
     position: absolute;
     top: 3rem;
@@ -44,4 +61,8 @@ transform: translateY(-50%);
     color: #ddd;
     align-items: center;
     cursor: pointer;   
+}
+
+.blog-close-btn i{
+    font-size: 4rem;
 }

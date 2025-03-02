@@ -9,7 +9,7 @@ const Blog = () => {
         </div>
         <div className="blog-right">
             <button className='post-btn'>Create a Post</button>
-            <button className='blogs-close-btn'>
+            <button className='blog-close-btn'>
                 Back <i className='bx bx-chevron-right'></i>
             </button>
         </div>
