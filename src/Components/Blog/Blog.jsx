@@ -23,7 +23,7 @@ const Blog = ({onBack}) => {
                 <button type='submit' className='submit-btn'>Submit Button </button>
             </form>
           </div>) : (
-          <button className='post-btn'>Create New Post </button>
+          <button className='post-btn' onClick={() => setShowForm(true)}>Create New Post </button>
           ) }
         
             <button className='blog-close-btn' onClick={onBack}>
