@@ -1,14 +1,15 @@
-import React from 'react'
+import React,{useState} from 'react'
 import UserImg from '../../assets/images/user.jpg'
 import './Blog.scss'
 const Blog = ({onBack}) => {
+  const [showForm, setShowForm] = useState(false)
   return (
     <div className='blog'>
         <div className="blog-left">
-        <img src={UserImg} alt="" />
+        <img src={UserImg} alt="User Image" />
         </div>
         <div className="blog-right">
-          <div className="blog-right-form">
+          {showForm ? (<div className="blog-right-form">
             <h1> New Post</h1>
             <form>
               <div className="img-upload">
@@ -21,7 +22,10 @@ const Blog = ({onBack}) => {
                 <textarea className='text-input' placeholder='Add Text'></textarea>
                 <button type='submit' className='submit-btn'>Submit Button </button>
             </form>
-          </div>
+          </div>) : (
+          <button className='post-btn'>Create New Post </button>
+          ) }
+        
             <button className='blog-close-btn' onClick={onBack}>
                 Back <i className='bx bx-chevron-right'></i>
             </button>
