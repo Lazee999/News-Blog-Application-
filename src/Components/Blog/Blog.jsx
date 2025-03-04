@@ -8,7 +8,20 @@ const Blog = () => {
         <img src={UserImg} alt="" />
         </div>
         <div className="blog-right">
-            <button className='post-btn'>Create a Post</button>
+          <div className="blog-right-form">
+            <h1> New Post</h1>
+            <form>
+              <div className="img-upload">
+                <label htmlFor="file-upload" className="file-upload">
+                    <i className='bx bx-upload'></i> Upload Image 
+                </label>
+                <input type="file" id="file-upload" />
+                </div>
+                <input type="text" placeholder='Add Title (Max 60 characters)'className='title-input'/>
+                <textarea className='text-input' placeholder='Add Text'></textarea>
+                <button type='submit' className='submit-btn'>Submit Button </button>
+            </form>
+          </div>
             <button className='blog-close-btn'>
                 Back <i className='bx bx-chevron-right'></i>
             </button>
