@@ -20,9 +20,7 @@ const App = () => {
     <div className='container'>
       <div className="news-blog-app">
         {showNews &&  <News onShowBlogs={handleshowBlogs} />}
-        {showBlog &&  <Blog onClick={handleBackToNews} />}
-        <News /> 
-        <Blog />
+        {showBlog &&  <Blog onBack={handleBackToNews} />}
       </div>
     </div>
   )

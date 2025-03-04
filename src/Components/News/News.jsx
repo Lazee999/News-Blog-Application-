@@ -19,7 +19,7 @@ const categories = [
     'nation',
 ];
 
-const News = () => {
+const News = ({onShowBlogs}) => {
     const [headline, setHeadline] = useState(null);
     const [news, setNews] = useState([]);
     const [selectCategory, setSelectCategory] = useState('general');
@@ -105,7 +105,7 @@ const News = () => {
             </header>
             <div className="news-content">
                 <div className="navbar">
-                    <div className="user">
+                    <div className="user" onClick={onShowBlogs}>
                         <img src={userImg} alt="User" />
                         <p>Mary's Blog</p>
                     </div>
