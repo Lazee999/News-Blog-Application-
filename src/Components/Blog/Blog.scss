@@ -7,11 +7,12 @@
 .blog-left {
     width: 50%;
     height: 100%;
-    position: relative; // Needed for absolute positioning inside
+    position: relative;
     background: 
         linear-gradient(rgba(184, 142, 252, 0.3), rgba(104, 119, 244, 0.2)),
-        url(../../assets/images/bg.jpg);  // Fix gradient and background image
+        url(../../assets/images/bg.jpg);
     background-size: cover;
+    background-position: center;
     border-radius: 1rem 0 0 1rem;
 }
 
@@ -37,7 +38,7 @@
 }
 
 .post-btn {
-    width: clamp(15rem, 20vw, 30rem); // Changed from 10cqi to 20vw for better responsiveness
+    width: clamp(15rem, 20vw, 30rem);
     aspect-ratio: 4 / 1;
     background: linear-gradient(to right, #b88efa, #6877fa);
     border: none;
@@ -49,10 +50,10 @@
     text-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
     cursor: pointer;
     transition: transform 0.2s ease;
-}
 
-.post-btn:active {
-    transform: translateY(0.2rem);
+    &:active {
+        transform: translateY(0.2rem);
+    }
 }
 
 .blog-right-form {
@@ -61,68 +62,88 @@
     align-items: center;
     row-gap: 5rem;
 
-    h1{
+    h1 {
         font-family: "Comfortaa", sans-serif;
-        font-size: clamp(2rem, 5cqi, 6rem);
+        font-size: clamp(2rem, 5vw, 6rem);
         text-transform: uppercase;
         background: linear-gradient(to right, #b88efa, #6877fc);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        }
-    form{
+    }
+
+    form {
         display: flex;
         flex-direction: column;
         row-gap: 4rem;
-        }
-    .file-upload{
+    }
+
+    .file-upload {
         display: flex;
         align-items: center;
         column-gap: 2rem;
         font-size: 2rem;
         color: #ddd;
         cursor: pointer;
+        transition: color 0.3s ease-in-out;
 
-        i{
+        i {
             font-size: 4rem;
             color: #b88efa;
-            }
-        }
-    input [type='file']{
-        display: none;
-        }
-    
-    .title-input{
-        font-size: 1.8rem;
         }
 
-    .title-input, .text-input{
-        width: clamp(15rem, 25cqi, 45rem);
+        &:hover {
+            color: #fff;
+        }
+    }
+
+    input[type='file'] {
+        display: none;
+    }
+
+    .title-input {
+        font-size: 1.8rem;
+    }
+
+    .title-input, 
+    .text-input {
+        width: clamp(15rem, 25vw, 45rem);
         background: transparent;
         border: none;
         border-bottom: 0.1rem solid #b88efa;
         padding: 2rem 0;
         color: #ddd;
-        }
+        font-size: 1.6rem;
+        transition: border-color 0.3s ease-in-out;
 
-            
-    .text-input{
+        &:focus {
+            border-color: #6877fc;
+        }
+    }
+
+    .text-input {
         aspect-ratio: 5 / 3;
         resize: none;
-        }
-   
-    .title-input::placeholder, .text-input::placeholder{
+    }
+
+    .title-input::placeholder, 
+    .text-input::placeholder {
         font-family: "Comfortaa", sans-serif;
         font-size: 1.3rem;
         color: #b88efa;
         opacity: 0.5;
-        }
-     .title-input::placeholder{
+        transition: color 0.3s ease-in-out;
+    }
+
+    .title-input::placeholder {
         font-size: 1.8rem;
-        }
-     .title-input:focus::placeholder, .text-input:focus::placeholder{
+    }
+
+    .title-input:focus::placeholder, 
+    .text-input:focus::placeholder {
         color: transparent;
-        }
-    .submit-btn{
+    }
+
+    .submit-btn {
         height: 5rem;
         background: linear-gradient(to right, #b88efa, #6877fa);
         border: none;
@@ -130,16 +151,20 @@
         color: #fff;
         font-size: 1.8rem;
         text-transform: uppercase;
-        letter-spacing: 1rem;
+        letter-spacing: 0.3rem;
         text-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.2);
-        cursor: pointer;    
-        }
-    
-    .submit-btn:active {
-        transform: translateY(0.2rem);
-    } 
-}
+        cursor: pointer;
+        transition: transform 0.2s ease, background 0.3s ease-in-out;
 
+        &:hover {
+            background: linear-gradient(to right, #a076f0, #5b6afc);
+        }
+
+        &:active {
+            transform: translateY(0.2rem);
+        }
+    }
+}
 
 .blog-close-btn {
     position: absolute;
@@ -153,8 +178,13 @@
     display: flex;
     align-items: center;
     cursor: pointer;
-}
+    transition: color 0.3s ease-in-out;
 
-.blog-close-btn i {
-    font-size: 4rem;
+    &:hover {
+        color: #fff;
+    }
+
+    i {
+        font-size: 4rem;
+    }
 }
