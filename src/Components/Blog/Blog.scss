@@ -55,6 +55,69 @@
     transform: translateY(0.2rem);
 }
 
+.blog-right-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 5rem;
+
+    h1{
+        font-family: "Comfortaa", sans-serif;
+        font-size: clamp(2rem, 5cqi, 6rem);
+        text-transform: uppercase;
+        background: linear-gradient(to right, #b88efa, #6877fc);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        }
+    form{
+        display: flex;
+        flex-direction: column;
+        row-gap: 4rem;
+        }
+    .file-upload{
+        display: flex;
+        align-items: center;
+        column-gap: 2rem;
+        font-size: 2rem;
+        color: #ddd;
+        cursor: pointer;
+
+        i{
+            font-size: 4rem;
+            color: #b88efa;
+            }
+        }
+    input [type='file']{
+        display: none;
+        }
+    
+    .title-input{
+        font-size: 1.8rem;
+        }
+
+    .title-input, .text-input{
+        width: clamp(15rem, 25cqi, 45rem);
+        background: transparent;
+        border: none;
+        border-bottom: 0.1rem solid #b88efa;
+        padding: 2rem 0;
+        color: #ddd;
+        }
+   
+    .title-input::placeholder, .text-input::placeholder{
+        font-family: "Comfortaa", sans-serif;
+        font-size: 1.3rem;
+        color: #b88efa;
+        opacity: 0.5;
+        }
+     .title-input::placeholder{
+        font-size: 1.8rem;
+        }
+     .title-input:focus::placeholder, .text-input:focus::placeholder{
+        color: transparent;
+        }
+}
+
 .blog-close-btn {
     position: absolute;
     top: 3rem;
