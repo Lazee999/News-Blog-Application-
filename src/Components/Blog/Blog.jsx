@@ -1,7 +1,7 @@
 import React from 'react'
 import UserImg from '../../assets/images/user.jpg'
 import './Blog.scss'
-const Blog = () => {
+const Blog = ({onBack}) => {
   return (
     <div className='blog'>
         <div className="blog-left">
@@ -22,7 +22,7 @@ const Blog = () => {
                 <button type='submit' className='submit-btn'>Submit Button </button>
             </form>
           </div>
-            <button className='blog-close-btn'>
+            <button className='blog-close-btn' onClick={onBack}>
                 Back <i className='bx bx-chevron-right'></i>
             </button>
         </div>
