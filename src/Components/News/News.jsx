@@ -228,6 +228,17 @@ const News = ({ onShowBlogs }) => {
                             </div>
                         </div>
 
+                        <div className="blog-post">
+                            <img src={blogImg4} alt="Post Image" />
+                            <h3>Lorem ipsum dolor sit.</h3>
+                            <div className="post-buttons">
+                                <button className="edit-post">Edit Post
+                                    <i className='bx-bxs-edit'></i></button>
+                                <button className="delete-post">Edit Post
+                                    <i className='bx-bxs-x-circle'></i></button>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
                 <div className="weather-calendar">
