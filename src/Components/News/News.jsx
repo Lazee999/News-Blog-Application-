@@ -4,6 +4,10 @@ import Calender from '../Calender/Calender';
 import './News.scss';
 import userImg from '../../assets/images/user.jpg';
 import noImg from '../../assets/images/no-img.png';
+import blogImg1 from '../../assets/images/blog1.jpg';
+import blogImg2 from '../../assets/images/blog2.jpg';
+import blogImg3 from '../../assets/images/blog3.jpg';
+import blogImg4 from '../../assets/images/blog4.jpg';
 import axios from 'axios';
 import NewsModal from '../NewsModal/NewsModal';
 import Bookmark from '../Bookmarks/Bookmarks';
@@ -19,7 +23,7 @@ const categories = [
     'nation',
 ];
 
-const News = ({onShowBlogs}) => {
+const News = ({ onShowBlogs }) => {
     const [headline, setHeadline] = useState(null);
     const [news, setNews] = useState([]);
     const [selectCategory, setSelectCategory] = useState('general');
@@ -188,7 +192,44 @@ const News = ({onShowBlogs}) => {
                     onSelectArticle={handleArticleClick}
                     onDeleteBookmark={handleBookmarkClick}
                 />
-                <div className="my-blog">My Blog</div>
+                <div className="my-blog">
+                    <h1 className="my-blogs-heading"> My Blogs</h1>
+                    <div className="blog-posts">
+                        <div className="blog-post">
+                            <img src={blogImg1} alt="Post Image" />
+                            <h3>Lorem ipsum dolor sit.</h3>
+                            <div className="post-buttons">
+                                <button className="edit-post">Edit Post
+                                    <i className='bx-bxs-edit'></i></button>
+                                <button className="delete-post">Edit Post
+                                    <i className='bx-bxs-x-circle'></i></button>
+                            </div>
+                        </div>
+
+                        <div className="blog-post">
+                            <img src={blogImg2} alt="Post Image" />
+                            <h3>Lorem ipsum dolor sit.</h3>
+                            <div className="post-buttons">
+                                <button className="edit-post">Edit Post
+                                    <i className='bx-bxs-edit'></i></button>
+                                <button className="delete-post">Edit Post
+                                    <i className='bx-bxs-x-circle'></i></button>
+                            </div>
+                        </div>
+
+                        <div className="blog-post">
+                            <img src={blogImg3} alt="Post Image" />
+                            <h3>Lorem ipsum dolor sit.</h3>
+                            <div className="post-buttons">
+                                <button className="edit-post">Edit Post
+                                    <i className='bx-bxs-edit'></i></button>
+                                <button className="delete-post">Edit Post
+                                    <i className='bx-bxs-x-circle'></i></button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
                 <div className="weather-calendar">
                     <Weather />
                     <Calender />
