@@ -195,32 +195,19 @@ const News = ({ onShowBlogs, blogs }) => {
                 <div className="my-blog">
                     <h1 className="my-blogs-heading"> My Blogs</h1>
                     <div className="blog-posts">
-                        <div className="blog-post">
-                            <img src={blogImg1} alt="Post Image" />
-                            <h3>Lorem ipsum dolor sit.</h3>
-                            <div className="post-buttons">
-                                <button className="edit-post">
-                                    <i className='bx-bxs-edit'></i></button>
-                                <button className="delete-post">
-                                    <i className='bx-bxs-x-circle'></i></button>
-                            </div>
-                        </div>
-
-                        <div className="blog-post">
-                            {blogs.map((blog, index) => (
-                                <div key={index} className="blog-post">
-                                    <img src={blog.image} alt={blog.title} />
-                                    <h3> {blog.title}</h3>
-                                    <p> {blog.content}</p>
-                                    <div className="post-buttons">
-                                        <button className="edit-post">
-                                            <i className='bx-bxs-edit'></i></button>
-                                        <button className="delete-post">
-                                            <i className='bx-bxs-x-circle'></i></button>
-                                    </div>
+                        {blogs.map((blog, index) => (
+                            <div key={index} className="blog-post">
+                                <img src={blog.image || noImg} alt={blog.title} />
+                                <h3> {blog.title}</h3>
+                                {/* <p> {blog.content}</p> */}
+                                <div className="post-buttons">
+                                    <button className="edit-post">
+                                        <i className='bx-bxs-edit'></i></button>
+                                    <button className="delete-post">
+                                        <i className='bx-bxs-x-circle'></i></button>
                                 </div>
-                            ))}
-                        </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
                 <div className="weather-calendar">

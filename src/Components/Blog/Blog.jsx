@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import UserImg from '../../assets/images/user.jpg'
+import noImg from '../../assets/images/no-img.png'
 import './Blog.scss'
 const Blog = ({onBack , onCreateBlog}) => {
   const [showForm, setShowForm] = useState(false)
@@ -22,7 +23,7 @@ const Blog = ({onBack , onCreateBlog}) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     const newBlog =  {
-      image,
+      image: image || noImg,
       title,
       content,
     }
