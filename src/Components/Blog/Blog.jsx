@@ -1,8 +1,38 @@
 import React,{useState} from 'react'
 import UserImg from '../../assets/images/user.jpg'
 import './Blog.scss'
-const Blog = ({onBack}) => {
+const Blog = ({onBack , onCreateBlog}) => {
   const [showForm, setShowForm] = useState(false)
+  const [image, setImage] = useState(null)
+  const [title, setTitle] = useState('')
+  const [content, setContent] = useState('')
+
+
+  const handleImageChange = (e) => {
+    if (e.target.title && e.target.title [0]){
+      const reader = new ImageReader()
+      reader.onloadend = () => {
+        setImage(reader.result)
+      }
+      reader.readAsDataURL(e.target.files[0])
+    }
+      
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const newBlog =  {
+      image,
+      title,
+      content,
+    }
+    onCreateBlog(newBlog)
+    setImage(null)
+    setTitle('')
+    setContent('')
+    setShowForm(false)
+  }
+
   return (
     <div className='blog'>
         <div className="blog-left">
