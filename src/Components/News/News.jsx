@@ -199,9 +199,9 @@ const News = ({ onShowBlogs }) => {
                             <img src={blogImg1} alt="Post Image" />
                             <h3>Lorem ipsum dolor sit.</h3>
                             <div className="post-buttons">
-                                <button className="edit-post">Edit Post
+                                <button className="edit-post">
                                     <i className='bx-bxs-edit'></i></button>
-                                <button className="delete-post">Edit Post
+                                <button className="delete-post">
                                     <i className='bx-bxs-x-circle'></i></button>
                             </div>
                         </div>
@@ -210,9 +210,9 @@ const News = ({ onShowBlogs }) => {
                             <img src={blogImg2} alt="Post Image" />
                             <h3>Lorem ipsum dolor sit.</h3>
                             <div className="post-buttons">
-                                <button className="edit-post">Edit Post
+                                <button className="edit-post">
                                     <i className='bx-bxs-edit'></i></button>
-                                <button className="delete-post">Edit Post
+                                <button className="delete-post">
                                     <i className='bx-bxs-x-circle'></i></button>
                             </div>
                         </div>
@@ -221,9 +221,9 @@ const News = ({ onShowBlogs }) => {
                             <img src={blogImg3} alt="Post Image" />
                             <h3>Lorem ipsum dolor sit.</h3>
                             <div className="post-buttons">
-                                <button className="edit-post">Edit Post
+                                <button className="edit-post">
                                     <i className='bx-bxs-edit'></i></button>
-                                <button className="delete-post">Edit Post
+                                <button className="delete-post">
                                     <i className='bx-bxs-x-circle'></i></button>
                             </div>
                         </div>
@@ -232,9 +232,9 @@ const News = ({ onShowBlogs }) => {
                             <img src={blogImg4} alt="Post Image" />
                             <h3>Lorem ipsum dolor sit.</h3>
                             <div className="post-buttons">
-                                <button className="edit-post">Edit Post
+                                <button className="edit-post">
                                     <i className='bx-bxs-edit'></i></button>
-                                <button className="delete-post">Edit Post
+                                <button className="delete-post">
                                     <i className='bx-bxs-x-circle'></i></button>
                             </div>
                         </div>

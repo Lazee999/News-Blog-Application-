@@ -5,13 +5,18 @@ import Blog from './Components/Blog/Blog';
 const App = () => {
   const [showNews, setShowNews] = useState(true);
   const [showBlog, setShowBlog] = useState(false);
+  const [blogs, setBlogs] = useState([]);
 
-  const handleToggleBlogs = () => {
+  const handleCreateBlog = (newBlog) => {
+    setBlogs((prevBlogs) => [...prevBlogs, newBlog] )
+  }
+
+  const handleShowBlogs = () => {
     setShowNews(false);
     setShowBlog(true);
   };
 
-  const handleToggleNews = () => {
+  const handleBackToNews = () => {
     setShowNews(true);
     setShowBlog(false);
   };
@@ -19,8 +24,8 @@ const App = () => {
   return (
     <div className="container">
       <div className="news-blog-app">
-        {showNews && <News onShowBlogs={handleToggleBlogs} />}
-        {showBlog && <Blog onBack={handleToggleNews} />}
+        {showNews && <News onShowBlogs={handleShowBlogs} blogs={blogs} />}
+        {showBlog && <Blog onBack={handleBackToNews} onCreateBlog={handleCreateBlog}  />}
       </div>
     </div>
   );
