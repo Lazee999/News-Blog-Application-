@@ -41,15 +41,15 @@ const Blog = ({onBack , onCreateBlog}) => {
         <div className="blog-right">
           {showForm ? (<div className="blog-right-form">
             <h1> New Post</h1>
-            <form>
+            <form onSubmit={handleSubmit}>
               <div className="img-upload">
                 <label htmlFor="file-upload" className="file-upload">
                     <i className='bx bx-upload'></i> Upload Image 
                 </label>
-                <input type="file" id="file-upload" />
+                <input type="file" id="file-upload" onChange={handleImageChange}/>
                 </div>
-                <input type="text" placeholder='Add Title (Max 60 characters)'className='title-input'/>
-                <textarea className='text-input' placeholder='Add Text'></textarea>
+                <input type="text" placeholder='Add Title (Max 60 characters)'className='title-input' value={title} onChange={(e) => setTitle(e.target.value)}  />
+                <textarea className='text-input' placeholder='Add Text' value={content} onChange={(e) => setContent(e.target.value)}></textarea>
                 <button type='submit' className='submit-btn'>Submit Button </button>
             </form>
           </div>) : (
