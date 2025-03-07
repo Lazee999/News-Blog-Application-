@@ -55,6 +55,13 @@
         transform: translateY(0.2rem);
     }
 }
+.submitted-message{
+    font-size: 6rem;
+    text-transform: uppercase;
+    background: linear-gradient(to right, #b88efa, #6877fa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    }
 
 .blog-right-form.visible {
     display: flex;

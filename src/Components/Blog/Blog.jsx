@@ -45,6 +45,7 @@ const Blog = ({ onBack, onCreateBlog }) => {
         {!showForm && !submitted && (
           <button className='post-btn' onClick={() => setShowForm(true)}>Create New Post </button>
         )}
+        {submitted && <p className='submission-msg'> Post Submitted </p>}
         <div className={`blog-right-form ${showForm ? 'visible' : 'hidden'}`}>
           <h1> New Post</h1>
           <form onSubmit={handleSubmit}>
