@@ -35,6 +35,13 @@ const Blog = ({ onBack, onCreateBlog }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+
+    if (!title || !content) {
+      if (!title)  setTitleValid(false)
+      if (!title)  setContentValid(false)
+        return
+    }
+
     const newBlog = {
       image: image || noImg,
       title,
@@ -71,12 +78,12 @@ const Blog = ({ onBack, onCreateBlog }) => {
               </label>
               <input type="file" id="file-upload" onChange={handleImageChange} />
             </div>
-            <input type="text" placeholder='Add Title (Max 60 characters)' className='title-input' value={title} onChange={handleTitleChange} />
-            <textarea className='text-input' placeholder='Add Text' value={content} onChange={handleContentChange}></textarea>
+            <input type="text" placeholder='Add Title (Max 60 characters)' className={`title-input ${!titleValid ? 'invalid' : ''}`} value={title} onChange={handleTitleChange} />
+            <textarea className={`text-input ${!contentValid ? 'invalid' : ''}`} placeholder='Add Text' value={content} onChange={handleContentChange}></textarea>
             <button type='submit' className='submit-btn'>Submit Button </button>
           </form>
         </div>
-
+ 
         <button className='blog-close-btn' onClick={onBack}>
           Back <i className='bx bx-chevron-right'></i>
         </button>

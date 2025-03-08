@@ -131,6 +131,12 @@
         aspect-ratio: 5 / 3;
         resize: none;
     }
+    
+    .title-input.invalid ,
+    .text-input.invalid {
+        border-bottom: 0.1rem solid #fc4143;
+        }
+
 
     .title-input::placeholder, 
     .text-input::placeholder {
@@ -150,6 +156,10 @@
         color: transparent;
     }
 
+    .title-input::placeholder ,
+    .text-input::placeholder {
+        color: #fc4143;
+        }
     .submit-btn {
         height: 5rem;
         background: linear-gradient(to right, #b88efa, #6877fa);
