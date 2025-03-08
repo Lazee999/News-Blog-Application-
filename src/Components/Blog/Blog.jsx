@@ -8,6 +8,8 @@ const Blog = ({ onBack, onCreateBlog }) => {
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
   const [submitted, setSubmitted] = useState(false)
+  const [titleValid, setTitleValid] = useState(true)
+  const [contentValid, setContentValid] = useState(true)
 
 
   const handleImageChange = (e) => {
@@ -19,6 +21,16 @@ const Blog = ({ onBack, onCreateBlog }) => {
       reader.readAsDataURL(e.target.files[0])
     }
 
+  }
+  const handleTitleChange = (e) => {
+    if(e.target.value <= 60) {
+      setTitle(e.target.value)
+      setTitleValid(true)
+    }
+      }
+  const handleContentChange = (e) => {
+    setContent(e.target.value)
+    setContentValid(true)
   }
 
   const handleSubmit = (e) => {
@@ -34,6 +46,10 @@ const Blog = ({ onBack, onCreateBlog }) => {
     setContent('')
     setShowForm(false)
     setSubmitted(true)
+    setTimeout(() => {
+      setSubmitted(false)
+      onBack()
+    },3000)
   }
 
   return (
@@ -55,8 +71,8 @@ const Blog = ({ onBack, onCreateBlog }) => {
               </label>
               <input type="file" id="file-upload" onChange={handleImageChange} />
             </div>
-            <input type="text" placeholder='Add Title (Max 60 characters)' className='title-input' value={title} onChange={(e) => setTitle(e.target.value)} />
-            <textarea className='text-input' placeholder='Add Text' value={content} onChange={(e) => setContent(e.target.value)}></textarea>
+            <input type="text" placeholder='Add Title (Max 60 characters)' className='title-input' value={title} onChange={handleTitleChange} />
+            <textarea className='text-input' placeholder='Add Text' value={content} onChange={handleContentChange}></textarea>
             <button type='submit' className='submit-btn'>Submit Button </button>
           </form>
         </div>
