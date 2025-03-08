@@ -131,6 +131,10 @@
         aspect-ratio: 5 / 3;
         resize: none;
     }
+
+    .title-input::webkit-scrollbar {
+        display: none;
+        }
     
     .title-input.invalid ,
     .text-input.invalid {

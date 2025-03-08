@@ -23,11 +23,10 @@ const Blog = ({ onBack, onCreateBlog }) => {
 
   }
   const handleTitleChange = (e) => {
-    if(e.target.value <= 60) {
-      setTitle(e.target.value)
-      setTitleValid(true)
-    }
-      }
+    setTitle(e.target.value)
+    setTitleValid(true)
+  }
+  
   const handleContentChange = (e) => {
     setContent(e.target.value)
     setContentValid(true)
@@ -78,7 +77,7 @@ const Blog = ({ onBack, onCreateBlog }) => {
               </label>
               <input type="file" id="file-upload" onChange={handleImageChange} />
             </div>
-            <input type="text" placeholder='Add Title (Max 60 characters)' className={`title-input ${!titleValid ? 'invalid' : ''}`} value={title} onChange={handleTitleChange} />
+            <input type="text" placeholder='Add Title (Max 60 characters)' className={`title-input ${!titleValid ? 'invalid' : ''}`} value={title} onChange={handleTitleChange} maxLength={60} />
             <textarea className={`text-input ${!contentValid ? 'invalid' : ''}`} placeholder='Add Text' value={content} onChange={handleContentChange}></textarea>
             <button type='submit' className='submit-btn'>Submit Button </button>
           </form>
