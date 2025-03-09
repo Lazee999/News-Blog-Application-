@@ -1,5 +1,4 @@
 import React from 'react';
-import demoImg from '../../assets/images/demo.jpg';
 import './BlogModal.scss';
 
 const BlogModal = ({ show,blog, onClose }) => {
@@ -15,7 +14,7 @@ const BlogModal = ({ show,blog, onClose }) => {
         </span>
         {blog.image &&  <img src={blog.image} alt={blog.title} className="blogs-modal-image" />}
        
-        <h2 className="blogs-modal-title">   {blog.title} </h2>
+        <h2 className="blogs-modal-title">{blog.title} </h2>
      
         <p className="blog-post-content">{blog.content}</p>
       </div>
