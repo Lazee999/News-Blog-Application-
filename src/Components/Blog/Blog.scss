@@ -4,6 +4,7 @@
     display: flex;
 }
 
+/* Left Section */
 .blog-left {
     width: 50%;
     height: 100%;
@@ -28,15 +29,18 @@
     transform: translateY(-50%);
 }
 
+/* Right Section */
 .blog-right {
     width: 50%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column; // Ensures proper stacking
     position: relative;
 }
 
+/* Create Post Button */
 .post-btn {
     width: clamp(15rem, 20vw, 30rem);
     aspect-ratio: 4 / 1;
@@ -55,14 +59,20 @@
         transform: translateY(0.2rem);
     }
 }
-.submitted-message{
-    font-size: 6rem;
+
+/* Submission Message Styling */
+.submission-msg {
+    font-size: 3rem;
+    font-weight: bold;
     text-transform: uppercase;
     background: linear-gradient(to right, #b88efa, #6877fa);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    }
+    text-align: center;
+    margin-top: 2rem;
+}
 
+/* Blog Form */
 .blog-right-form.visible {
     display: flex;
     flex-direction: column;
@@ -134,13 +144,12 @@
 
     .title-input::webkit-scrollbar {
         display: none;
-        }
+    }
     
-    .title-input.invalid ,
+    .title-input.invalid,
     .text-input.invalid {
         border-bottom: 0.1rem solid #fc4143;
-        }
-
+    }
 
     .title-input::placeholder, 
     .text-input::placeholder {
@@ -160,10 +169,6 @@
         color: transparent;
     }
 
-    .title-input::placeholder ,
-    .text-input::placeholder {
-        color: #fc4143;
-        }
     .submit-btn {
         height: 5rem;
         background: linear-gradient(to right, #b88efa, #6877fa);
@@ -187,10 +192,12 @@
     }
 }
 
+/* Hide Form */
 .blog-right-form.hidden {
     display: none;
 }
 
+/* Back Button */
 .blog-close-btn {
     position: absolute;
     top: 3rem;
