@@ -13,15 +13,15 @@ const Blog = ({ onBack, onCreateBlog }) => {
 
 
   const handleImageChange = (e) => {
-    if (e.target.title && e.target.title[0]) {
-      const reader = new ImageReader()
+    if (e.target.files && e.target.files[0]) {
+      const reader = new FileReader(); // Use FileReader instead of ImageReader
       reader.onloadend = () => {
-        setImage(reader.result)
-      }
-      reader.readAsDataURL(e.target.files[0])
+        setImage(reader.result);
+      };
+      reader.readAsDataURL(e.target.files[0]); // Read the image file
     }
-
-  }
+  };
+  
   const handleTitleChange = (e) => {
     setTitle(e.target.value)
     setTitleValid(true)
