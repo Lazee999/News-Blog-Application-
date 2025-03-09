@@ -11,6 +11,7 @@ import blogImg4 from '../../assets/images/blog4.jpg';
 import axios from 'axios';
 import NewsModal from '../NewsModal/NewsModal';
 import Bookmark from '../Bookmarks/Bookmarks';
+import BlogModal from '../BlogModal/BlogModal';
 
 const categories = [
     'general',
@@ -209,6 +210,7 @@ const News = ({ onShowBlogs, blogs }) => {
                             </div>
                         ))}
                     </div>
+                    <BlogModal />
                 </div>
                 <div className="weather-calendar">
                     <Weather />
