@@ -90,7 +90,7 @@ const Blog = ({ onBack, onCreateBlog, editPost , isEditing }) => {
         )}
         {submitted && <p className='submission-msg'> Post Submitted </p>}
         <div className={`blog-right-form ${showForm ? 'visible' : 'hidden'}`}>
-          <h1> New Post</h1>
+          <h1> {isEditing ? 'Edit Post' : 'New Post' } </h1>
           <form onSubmit={handleSubmit}>
             <div className="img-upload">
               <label htmlFor="file-upload" className="file-upload">
@@ -100,7 +100,8 @@ const Blog = ({ onBack, onCreateBlog, editPost , isEditing }) => {
             </div>
             <input type="text" placeholder='Add Title (Max 60 characters)' className={`title-input ${!titleValid ? 'invalid' : ''}`} value={title} onChange={handleTitleChange} maxLength={60} />
             <textarea className={`text-input ${!contentValid ? 'invalid' : ''}`} placeholder='Add Text' value={content} onChange={handleContentChange}></textarea>
-            <button type='submit' className='submit-btn'>Submit Button </button>
+            <button type='submit' className='submit-btn'> 
+              {isEditing ? "Update Post" : "Submit Post"} </button>
           </form>
         </div>
  
