@@ -42,11 +42,12 @@
     object-fit: cover;
     border-radius: 1rem;
     opacity: 0.5;
+    margin-top: 1.5rem;
 }
 
 .blogs-modal-title {
     font-family: "Bebas Neue", sans-serif;
-    font-size: 2rem;
+    font-size: 3rem;
     color: #fff;
     margin-top: 2rem;
     letter-spacing: 0.1rem;
@@ -57,11 +58,8 @@
     font-size: 1rem;
     color: #ccc;
     margin-top: 1rem;
-    max-height: 250px;
-    overflow-y: auto;
-    text-align: justify;
-    padding: 0.5rem;
-    line-height: 1.5;
+    overflow-y: scroll;
+    max-height: 20rem;
 
     &::-webkit-scrollbar {
         display: none;
