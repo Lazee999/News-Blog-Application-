@@ -94,9 +94,11 @@ const News = ({ onShowBlogs, blogs }) => {
 
 
     const handleBlogClick = (blog) => {
+        if (!blog) return;
         setSelectedPost(blog);
         setShowBlogModal(true);
-    }
+    };
+
 
     const closeBlogModal = () => {
         setShowBlogModal(false);
@@ -224,9 +226,10 @@ const News = ({ onShowBlogs, blogs }) => {
                         ))}
                     </div>
                     {selectedPost && showBlogModal && (
-                         <BlogModal show={showBlogModal} blogs={selectedPost} onClose={closeBlogModal}/>
+                        <BlogModal show={showBlogModal} blog={selectedPost} onClose={closeBlogModal} />
                     )}
-                   
+
+
                 </div>
                 <div className="weather-calendar">
                     <Weather />
