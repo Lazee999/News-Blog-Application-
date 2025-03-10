@@ -31,6 +31,14 @@ const App = () => {
     setShowBlog(true)
   }
 
+  const handleDeleteBlog = (blogToDelete) => {
+    setBlogs((prevBlogs) => {
+      const updatedBlogs = prevBlogs.filter((blog) => blog !== blogToDelete)
+      localStorage.setItem('blogs', JSON.stringify(updatedBlogs))
+      return updatedBlogs
+  })
+  }
+
   const handleShowBlogs = () => {
     setShowNews(false);
     setShowBlog(true);
@@ -46,7 +54,7 @@ const App = () => {
   return (
     <div className="container">
       <div className="news-blog-app">
-        {showNews && <News onShowBlogs={handleShowBlogs} blogs={blogs} onClick={handleEditBlog} />}
+        {showNews && <News onShowBlogs={handleShowBlogs} blogs={blogs} onClick={handleEditBlog} onDeleteBlog={handleDeleteBlog} />}
         {showBlog && <Blog onBack={handleBackToNews} onCreateBlog={handleCreateBlog} editPost={selectedPost} isEditing={isEditing} />}
       </div>
     </div>
