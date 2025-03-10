@@ -14,11 +14,18 @@ const Blog = ({ onBack, onCreateBlog }) => {
 
   const handleImageChange = (e) => {
     if (e.target.files && e.target.files[0]) {
+      const file = e.target.files[0]
+
+      const maxSize = i * 1024 * 1024
+      if (file.size > maxSize) {
+        alert('Image file size exceeds the maximum limit of 1MB.')
+        return
+      }
       const reader = new FileReader(); // Use FileReader instead of ImageReader
       reader.onloadend = () => {
         setImage(reader.result);
       };
-      reader.readAsDataURL(e.target.files[0]); // Read the image file
+      reader.readAsDataURL(file); // Read the image file
     }
   };
   

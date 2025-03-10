@@ -7,6 +7,8 @@ const App = () => {
   const [showNews, setShowNews] = useState(true);
   const [showBlog, setShowBlog] = useState(false);
   const [blogs, setBlogs] = useState([]);
+  const [selectedPost, setSelectedPost] = useState(null)
+  coìt [isEditing, setIsEdit] = useState(false)
 
   useEffect(() => {
     const savedBlogs = JSON.parse(localStorage.getItem('blogs')) || []
