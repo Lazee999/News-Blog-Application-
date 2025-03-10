@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import UserImg from '../../assets/images/user.jpg'
 import noImg from '../../assets/images/no-img.png'
 import './Blog.scss'
-const Blog = ({ onBack, onCreateBlog }) => {
+const Blog = ({ onBack, onCreateBlog, editPost , isEditing }) => {
   const [showForm, setShowForm] = useState(false)
   const [image, setImage] = useState(null)
   const [title, setTitle] = useState('')
@@ -11,6 +11,20 @@ const Blog = ({ onBack, onCreateBlog }) => {
   const [titleValid, setTitleValid] = useState(true)
   const [contentValid, setContentValid] = useState(true)
 
+
+  useEffect(() => {
+    if (isEditing && editPost) {
+      setImage(editPost.image)
+      setTitle(editPost.title)
+      setContent(editPost.content)
+      setShowForm(true)
+    } else {
+      setImage(null)
+      setTitle('')
+      setContent('')
+      setShowForm(false)
+    } 
+  },[editPost, isEditing]);
 
   const handleImageChange = (e) => {
     if (e.target.files && e.target.files[0]) {
@@ -53,7 +67,7 @@ const Blog = ({ onBack, onCreateBlog }) => {
       title,
       content,
     }
-    onCreateBlog(newBlog)
+    onCreateBlog(newBlog, isEditing)
     setImage(null)
     setTitle('')
     setContent('')
