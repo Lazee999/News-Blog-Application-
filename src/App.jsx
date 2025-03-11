@@ -8,7 +8,7 @@ const App = () => {
   const [showBlog, setShowBlog] = useState(false);
   const [blogs, setBlogs] = useState([]);
   const [selectedPost, setSelectedPost] = useState(null)
-  coìt [isEditing, setIsEditing] = useState(false)
+  const [isEditing, setIsEditing] = useState(false)
 
   useEffect(() => {
     const savedBlogs = JSON.parse(localStorage.getItem('blogs')) || []
@@ -23,7 +23,7 @@ const App = () => {
     setIsEditing(false)
     setSelectedPost(null)
   }
-
+     
   const handleEditBlog = (blogs) => {
     setSelectedPost(blogs)
     setIsEditing(true)

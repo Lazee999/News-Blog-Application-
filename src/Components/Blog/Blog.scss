@@ -46,7 +46,7 @@
     aspect-ratio: 4 / 1;
     background: linear-gradient(to right, #b88efa, #6877fa);
     border: none;
-    border-radius: 2.5rem;
+    border-radius: clamp(1.4rem,1.5cqi, 2.5rem);
     font-size: 2.5rem;
     font-weight: bold;
     text-transform: uppercase;
@@ -220,3 +220,5 @@
         font-size: 4rem;
     }
 }
+
+    

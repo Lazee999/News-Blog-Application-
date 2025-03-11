@@ -340,3 +340,32 @@ $gap: 2rem;
     color: $text-color;
     }
 }
+
+@media (min-width: 1400px) {
+    .nav-links{
+        row-gap: 1rem;
+        padding: 0 4rem;
+    }
+    .news-section{
+        overflow: hidden;
+    }
+    .news-grid{
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        overflow-y: scroll;
+    }
+    .news-grid::webkit-scrollbar{
+        display: none;    
+    }
+    
+    .blog-posts{
+        overflow-y: scroll;
+    }
+    
+    .blog-posts{
+        display: none;
+    }
+    .blog-post{
+        flex: 0 1 calc( 100% - 0.6rem);           
+    }
+}
