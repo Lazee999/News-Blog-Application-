@@ -221,4 +221,59 @@
     }
 }
 
+
+    @media (max-width: 900px) {
+        .blogs-left{
+            background: none;
+        height: 100%;
+        }
+        .blogs-left img{
+            top: 10%;
+            right: auto;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .blogs-right{
+            position: absolute;
+            inset: 0;
+            width: 100%;
+        }
+        .blogs-close-btn{
+            top: 10rem;
+            right: 4rem;
+        }
+        .blogs-right-form{
+            margin-top: 18rem;
+        }
+        .title-input,
+        .text-input{
+            width: 40rem;
+        }
+    }
+
+    @media (max-width: 500px) {
+        .blogs-left img{
+            width: 10rem;
+        }
+        .title-input,
+        .text-input{
+            width: 30rem;
+        }
+    }
     
+    @media (max-width: 400px) {
+        .blogs-left img{
+            top: 10%;
+        }
+        
+        .blogs-close-btn{
+            top: 8rem;
+            right: 3rem;
+        }
+        .text-input {
+            aspect-ratio: 5/ 2;
+        }
+        .blogs-right-form.visible{
+            row-gap: 2rem;
+        }
+    }
