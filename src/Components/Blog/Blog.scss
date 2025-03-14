@@ -203,32 +203,34 @@
   }
 
   @media (max-width: 900px) {
-    flex-direction: column;
+    
 
     .blog-left {
       width: 100%;
       height: 30%;
       border-radius: 1rem 1rem 0 0;
+      background: none;
 
       img {
         top: 10%;
         right: auto;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translateX(-50%, -50%);
       }
     }
 
     .blog-right {
       width: 100%;
-      height: 70%;
-      padding: 2rem;
-
+      position: absolute;
+      inset: 0;
+      
       .blog-right-form.visible {
         row-gap: 3rem;
+        margin-top: 18rem;
 
         .title-input,
         .text-input {
-          width: 100%;
+          width: 40rem;
         }
       }
     }
