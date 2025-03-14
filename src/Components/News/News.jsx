@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Weather from '../Weather/Weather';
+import Weather from "../Weather/Weather";
 import Calender from '../Calender/Calender';
 import './News.scss';
 import userImg from '../../assets/images/user.jpg';
@@ -8,7 +8,6 @@ import axios from 'axios';
 import NewsModal from '../NewsModal/NewsModal';
 import Bookmark from '../Bookmarks/Bookmarks';
 import BlogModal from '../BlogModal/BlogModal';
-import Blog from '../Blog/Blog';
 
 const categories = [
   'general',
@@ -21,7 +20,7 @@ const categories = [
   'nation',
 ];
 
-const News = () => {
+const News = ({ onShowBlogs, blogs, onEditBlog, onDeleteBlog }) => {
   const [headline, setHeadline] = useState(null);
   const [news, setNews] = useState([]);
   const [selectCategory, setSelectCategory] = useState('general');
@@ -33,12 +32,7 @@ const News = () => {
   const [showBookmarkModal, setShowBookmarkModal] = useState(false);
   const [selectedPost, setSelectedPost] = useState(null);
   const [showBlogModal, setShowBlogModal] = useState(false);
-  const [blogs, setBlogs] = useState([]);
-  const [isEditing, setIsEditing] = useState(false);
-  const [editPost, setEditPost] = useState(null);
-  const [showBlogForm, setShowBlogForm] = useState(false);
 
-  // Fetch news data
   useEffect(() => {
     const fetchNews = async () => {
       try {
@@ -60,32 +54,28 @@ const News = () => {
         const savedBookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
         setBookmarks(savedBookmarks);
       } catch (error) {
-        console.error('Error fetching news:', error);
+        console.error("Error fetching news:", error);
       }
     };
     fetchNews();
   }, [selectCategory, searchQuery]);
 
-  // Handle category click
   const handleCategoryClick = (e, category) => {
     e.preventDefault();
     setSelectCategory(category);
   };
 
-  // Handle search
   const handleSearch = (e) => {
     e.preventDefault();
     setSearchQuery(searchInput);
     setSearchInput('');
   };
 
-  // Handle article click
   const handleArticleClick = (article) => {
     setSelectedArticle(article);
     setShowModal(true);
   };
 
-  // Handle bookmark click
   const handleBookmarkClick = (article, e) => {
     e.stopPropagation();
     setBookmarks((prevBookmarks) => {
@@ -98,44 +88,14 @@ const News = () => {
     });
   };
 
-  // Handle blog click
   const handleBlogClick = (blog) => {
     setSelectedPost(blog);
     setShowBlogModal(true);
   };
 
-  // Close blog modal
   const closeBlogModal = () => {
     setShowBlogModal(false);
     setSelectedPost(null);
-  };
-
-  // Handle edit blog
-  const handleEditBlog = (blog) => {
-    setIsEditing(true);
-    setEditPost(blog);
-    setShowBlogForm(true);
-  };
-
-  // Handle delete blog
-  const handleDeleteBlog = (blog) => {
-    setBlogs((prevBlogs) => prevBlogs.filter((b) => b.title !== blog.title));
-  };
-
-  // Handle create/update blog
-  const handleCreateBlog = (newBlog, isEditing) => {
-    if (isEditing) {
-      setBlogs((prevBlogs) =>
-        prevBlogs.map((blog) =>
-          blog.title === editPost.title ? newBlog : blog
-        )
-      );
-    } else {
-      setBlogs((prevBlogs) => [...prevBlogs, newBlog]);
-    }
-    setIsEditing(false);
-    setEditPost(null);
-    setShowBlogForm(false);
   };
 
   return (
@@ -159,7 +119,7 @@ const News = () => {
 
       <div className="news-content">
         <div className="navbar">
-          <div className="user" onClick={() => setShowBlogForm(true)}>
+          <div className="user" onClick={onShowBlogs}>
             <img src={userImg} alt="User" />
             <p>Mary's Blog</p>
           </div>
@@ -241,7 +201,7 @@ const News = () => {
                     className="edit-post"
                     onClick={(e) => {
                       e.stopPropagation();
-                      handleEditBlog(blog);
+                      onEditBlog(blog);
                     }}
                   >
                     <i className="bx bxs-edit"></i>
@@ -250,7 +210,7 @@ const News = () => {
                     className="delete-post"
                     onClick={(e) => {
                       e.stopPropagation();
-                      handleDeleteBlog(blog);
+                      onDeleteBlog(blog);
                     }}
                   >
                     <i className="bx bxs-x-circle"></i>
@@ -267,15 +227,6 @@ const News = () => {
           <Calender />
         </div>
       </div>
-
-      {showBlogForm && (
-        <Blog
-          onBack={() => setShowBlogForm(false)}
-          onCreateBlog={handleCreateBlog}
-          editPost={editPost}
-          isEditing={isEditing}
-        />
-      )}
 
       <footer className="news-footer">
         <p><span>News & Blogs App</span></p>
