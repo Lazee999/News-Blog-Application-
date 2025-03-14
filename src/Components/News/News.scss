@@ -345,12 +345,32 @@ $gap: 2rem;
     height: 100%;
     overflow-y: scroll;
 
+    
     &-content {
       flex-direction: column;
       row-gap: 2rem;
       width: 100%;
       height: auto;
-
+   
+    .news-section {
+      width: 100%
+    }
+    
+    .news-grid{
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      }
+    
+    .my-blogs{
+      width: 100%;
+      }
+    .blog-post{
+      flex: 1 1 calc(50% - 0.6rem);
+    }
+    .weather-calendar{
+      flex-direction: row;
+      row-gap: 2rem;
+      }
       .navbar {
         flex-direction: row;
         justify-content: space-between;
